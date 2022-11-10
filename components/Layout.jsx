@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
   return (
     <div className="layout">
       <Head>
-        <title>A Sponge For You</title>
+        <title>Bikini Bottom</title>
       </Head>
       <header>
         <Navbar />

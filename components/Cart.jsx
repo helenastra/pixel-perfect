@@ -6,31 +6,38 @@ import toast from 'react-hot-toast';
 
 import { useStateContext } from '../context/StateContext';
 import { urlFor } from '../lib/client';
-//import getStripe from '../lib/getStripe';
+import getStripe from '../lib/getStripe';
 
 const Cart = () => {
   const cartRef = useRef();
   const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuanitity, onRemove } = useStateContext();
 
- {/* const handleCheckout = async () => {
+  //making request to backend and sending body(cartItems)
+  //accepted in stripe.js
+  const handleCheckout = async () => {
+    //returns instance of Stripe from getStripe
     const stripe = await getStripe();
 
+    //make api request to Next.js backend
     const response = await fetch('/api/stripe', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
+      //passing all items contained inside cartItems
       body: JSON.stringify(cartItems),
     });
 
+    //something went wrong --> exit function
     if(response.statusCode === 500) return;
     
+    //everything worked (we got the data) --> redirectToCheckout
     const data = await response.json();
 
     toast.loading('Redirecting...');
 
     stripe.redirectToCheckout({ sessionId: data.id });
-  }*/}
+  }
 
   return (
     <div className="cart-wrapper" ref={cartRef}>
@@ -76,7 +83,7 @@ const Cart = () => {
                   <div>
                   <p className="quantity-desc">
                     <span className="minus" onClick={() => toggleCartItemQuanitity(item._id, 'dec')}><AiOutlineMinus /></span>
-                    <span className="num" onClick="">{item.quantity}</span>
+                    <span className="num">{item.quantity}</span>
                     <span className="plus" onClick={() => toggleCartItemQuanitity(item._id, 'inc')}><AiOutlinePlus /></span>
                   </p>
                   </div>
@@ -99,7 +106,7 @@ const Cart = () => {
               <h3>${totalPrice}</h3>
             </div>
             <div className="btn-container">
-              <button type="button" className="btn" onClick="">
+              <button type="button" className="btn" onClick={handleCheckout}>
                 Pay with Stripe
               </button>
             </div>
