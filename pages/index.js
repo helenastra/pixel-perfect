@@ -10,7 +10,7 @@ const Home = ({ products, bannerData}) => (
 
     <div className="products-heading">
       <h2>Best Selling Products</h2>
-      <p>Speakers of many variations</p>
+      <p>Canon PowerShot</p>
     </div>
 
     <div className="products-container">
@@ -22,6 +22,7 @@ const Home = ({ products, bannerData}) => (
   );
 
   //fetches all products + banner
+  //pre-render this page on each request (at run time) using the data returned (JSON)
   export const getServerSideProps = async () => {
     const query = '*[_type == "product"]';
     const products = await client.fetch(query);

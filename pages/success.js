@@ -9,7 +9,8 @@ const Success = () => {
   //properties from StateContext
   const { setCartItems, setTotalPrice, setTotalQuantities } = useStateContext();
   
-  useEffect(() => {
+  //clear all states
+  useEffect(() => { //executes as soon as success page is loaded
     localStorage.clear();
     setCartItems([]);
     setTotalPrice(0);

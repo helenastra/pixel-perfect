@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f0126f60-d694-45f9-a303-8ab513b9eeff" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/components/Cart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Cart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Product.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Product.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/context/StateContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/context/StateContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/client.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/api/stripe.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/stripe.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/product/[slug].js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/product/[slug].js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/success.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/success.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sanity-e-comm/schemas/banner.js" beforeDir="false" afterPath="$PROJECT_DIR$/sanity-e-comm/schemas/banner.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sanity-e-comm/tsconfig.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="2JwQe3CkIKDVXMlJ4qfvlZeuKwl" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f0126f60-d694-45f9-a303-8ab513b9eeff" name="Changes" comment="" />
+      <created>1672986763949</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1672986763949</updated>
+      <workItem from="1672986768937" duration="6000" />
+    </task>
+    <servers />
+  </component>
+</project>

@@ -24,7 +24,7 @@ const Cart = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-      //passing all items contained inside cartItems
+      //sending all cart items to Stripe
       body: JSON.stringify(cartItems),
     });
 
@@ -33,10 +33,8 @@ const Cart = () => {
     
     //everything worked (we got the data) --> redirectToCheckout
     const data = await response.json();
-
     toast.loading('Redirecting...');
-
-    stripe.redirectToCheckout({ sessionId: data.id });
+    stripe.redirectToCheckout({ sessionId: data.id }); //creates one instance of Checkout
   }
 
   return (
@@ -77,15 +75,10 @@ const Cart = () => {
               <div className="item-desc">
                 <div className="flex top">
                   <h5>{item.name}</h5>
-                  <h4>${item.price}</h4>
                 </div>
                 <div className="flex bottom">
                   <div>
-                  <p className="quantity-desc">
-                    <span className="minus" onClick={() => toggleCartItemQuanitity(item._id, 'dec')}><AiOutlineMinus /></span>
-                    <span className="num">{item.quantity}</span>
-                    <span className="plus" onClick={() => toggleCartItemQuanitity(item._id, 'inc')}><AiOutlinePlus /></span>
-                  </p>
+                  <p className="price">${item.price}</p>
                   </div>
                   <button
                     type="button"

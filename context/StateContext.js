@@ -12,16 +12,16 @@ export const StateContext = ({ children }) => {
   const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1);
 
-  //product we want to update
-  let foundProduct;
-  let index;
+  let foundProduct; //product we want to update 
+  let index; //index of the product
 
   const onAdd = (product, quantity) => {
-    const checkProductInCart = cartItems.find((item) => item._id === product._id);
+    const checkProductInCart = cartItems.find((item) => item._id === product._id); //checks if item is already in cart
     
     setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity);
     setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
     
+    //item already exists in cart
     if(checkProductInCart) {
       //already have item in cart --> increase qty of item rather than adding a whole new item
       const updatedCartItems = cartItems.map((cartProduct) => {
@@ -32,11 +32,11 @@ export const StateContext = ({ children }) => {
       })
 
       setCartItems(updatedCartItems);
-    } else {
-      //don't already have item in cart
+    } 
+    //don't already have item in cart
+    else {
       product.quantity = quantity;
-      
-      setCartItems([...cartItems, { ...product }]);
+      setCartItems([...cartItems, { ...product }]); //adding new product to previous products
     }
     
     //successful add notification
@@ -53,7 +53,7 @@ export const StateContext = ({ children }) => {
   }
 
   //cart slider add/remove items 
-  const toggleCartItemQuanitity = (id, value) => {
+  const toggleCartItemQuantity = (id, value) => {
     foundProduct = cartItems.find((item) => item._id === id)
     index = cartItems.findIndex((product) => product._id === id);
     //filter out the older (not yet updated) item and add new item with updated quanitity
@@ -99,7 +99,7 @@ export const StateContext = ({ children }) => {
         incQty,
         decQty,
         onAdd,
-        toggleCartItemQuanitity,
+        toggleCartItemQuantity,
         onRemove,
         setCartItems,
         setTotalPrice,

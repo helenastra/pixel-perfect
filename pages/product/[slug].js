@@ -8,10 +8,10 @@ import { Product } from '../../components';
 import { useStateContext } from '../../context/StateContext';
 
 const ProductDetails = ({ product, products }) => {
-    //don't have to repeat like product.name, product.image
+  //don't have to repeat like product.name, product.image
   const { image, name, details, price } = product;
   //allows for picture to pop-up when we hover
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(0); //image at index 0 in the start
   const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
 
   const handleBuyNow = () => {
@@ -56,14 +56,6 @@ const ProductDetails = ({ product, products }) => {
           <h4>Details: </h4>
           <p>{details}</p>
           <p className="price">${price}</p>
-          <div className="quantity">
-            <h3>Quantity:</h3>
-            <p className="quantity-desc">
-              <span className="minus" onClick={decQty}><AiOutlineMinus /></span>
-              <span className="num">{qty}</span>
-              <span className="plus" onClick={incQty}><AiOutlinePlus /></span>
-            </p>
-          </div>
           <div className="buttons">
             <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty)}>Add to Cart</button>
             <button type="button" className="buy-now" onClick={handleBuyNow}>Buy Now</button>
@@ -72,7 +64,7 @@ const ProductDetails = ({ product, products }) => {
       </div>
 
       <div className="maylike-products-wrapper">
-          <h2>Reccomended</h2>
+          <h2>Recommended</h2>
           <div className="marquee">
             <div className="maylike-products-container track">
               {products.map((item) => (
@@ -85,7 +77,7 @@ const ProductDetails = ({ product, products }) => {
   )
 }
 
-//gets all data for all products but only returns the current slug 
+//statically pre-render all the paths
 export const getStaticPaths = async () => {
   const query = `*[_type == "product"] {
     slug {
@@ -93,7 +85,6 @@ export const getStaticPaths = async () => {
     }
   }
   `;
-
   const products = await client.fetch(query);
 
   const paths = products.map((product) => ({
@@ -108,20 +99,16 @@ export const getStaticPaths = async () => {
   }
 }
 
-//pre-render page at build time using the props returned 
+//pre-render page at build time ahead of a user’s request using the props returned 
 export const getStaticProps = async ({ params: { slug }}) => {
-    //fetch product details from product page we are on
-  const query = `*[_type == "product" && slug.current == '${slug}'][0]`;
-   //fetch all other products 
-  const productsQuery = '*[_type == "product"]'
+  const query = `*[_type == "product" && slug.current == '${slug}'][0]`; //fetch product details from product page we are on
+  const productsQuery = '*[_type == "product"]'; //fetches all other products 
   
   const product = await client.fetch(query);
   const products = await client.fetch(productsQuery);
 
-  console.log(product);
-
   return {
-    props: { products, product }
+    props: { product, products }
   }
 }
 

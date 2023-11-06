@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link';
 
-//used to get url for imagiune inside Sanity dashboard
+//used to get url for images inside Sanity dashboard
 import { urlFor } from '../lib/client';
 
 const Product = ({ product: { image, name, slug, price } }) => {

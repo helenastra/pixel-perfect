@@ -17,7 +17,7 @@ export default async function handler(req, res) {
 
         shipping_options: [{ shipping_rate: 'shr_1M2S9bLEodn3uNw872FcQ23X' }, 
                             {shipping_rate: 'shr_1M2S8WLEodn3uNw8pZ5zhkGP'}],
-        //loop through cartItems sent from Cart.jsx
+        //loop through cartItems 
         line_items: req.body.map((item) => {
           //this is only a reference to image on Sanity so we need to replace it
           const img = item.image[0].asset._ref;
